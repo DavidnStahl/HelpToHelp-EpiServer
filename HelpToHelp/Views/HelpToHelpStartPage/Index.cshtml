@@ -1,0 +1,14 @@
+﻿
+@using HelpToHelp.Models.ViewModels
+
+@model StartPageViewModel
+
+
+<ul>
+    @foreach (var item in Model.Layout.Menu)
+    {
+        <li><a href="@Url.ContentUrl(item.ContentLink)">@item.Name</a></li>
+    }
+</ul>
+
+@Html.PropertyFor(x => x.CurrentPage.ContentArea)
