@@ -6,17 +6,17 @@ using EPiServer.Core;
 using EPiServer.Framework.DataAnnotations;
 using EPiServer.Web.Mvc;
 using HelpToHelp.Models.Pages;
+using HelpToHelp.Models.ViewModels;
 
 namespace HelpToHelp.Controllers
 {
-    public class HelpToHelpStartPageController : PageController<HelpToHelpStartPage>
+    public class HelpToHelpStartPageController : PageControllerBase<HelpToHelpStartPage>
     {
         public ActionResult Index(HelpToHelpStartPage currentPage)
         {
-            /* Implementation of action. You can create your own view model class that you pass to the view or
-             * you can pass the page type for simpler templates */
+            var model = new StartPageViewModel(currentPage);
 
-            return View(currentPage);
+            return View(model);
         }
     }
 }
